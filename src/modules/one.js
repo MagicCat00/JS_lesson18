@@ -16,7 +16,8 @@ const one = () => {
         timerSeconds.textContent = seconds
     }
     
-    countTimer('22 february 2022')
+    //countTimer('22 february 2022')
+    setInterval(countTimer, 1000, '22 february 2022')
     
 }
 
