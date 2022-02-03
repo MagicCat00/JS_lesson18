@@ -8,12 +8,12 @@ const one = () => {
     let dateNow = new Date().getTime()
     let timeRemaining = (dateStop - dateNow) / 1000
     let hours = Math.floor(timeRemaining / 60 / 60)
-    let minutes = Math.floor(timeRemaining / 60)
-    let seconds = Math.floor(timeRemaining)
+    let minutes = Math.floor((timeRemaining / 60) % 60)
+    let seconds = Math.floor(timeRemaining % 60)
     
-    console.log(hours);
-    console.log(minutes);
-    console.log(seconds);
+    timerHours.textContent = hours
+    timerMinutes.textContent = minutes
+    timerSeconds.textContent = seconds
     
 }
 
