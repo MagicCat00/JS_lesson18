@@ -2,12 +2,19 @@ const one = () => {
     const timerHours = document.getElementById('timer-hours');
     const timerMinutes = document.getElementById('timer-minutes');
     const timerSeconds = document.getElementById('timer-seconds');
-    console.log(timerHours);
-    console.log(timerMinutes);
-    console.log(timerSeconds);
-    //timer-hours
-    //timer-minutes
-    //timer-seconds
+ 
+    let deadline = '10 february 2022'
+    let dateStop = new Date(deadline).getTime()
+    let dateNow = new Date().getTime()
+    let timeRemaining = (dateStop - dateNow) / 1000
+    let hours = Math.floor(timeRemaining / 60 / 60)
+    let minutes = Math.floor(timeRemaining / 60)
+    let seconds = Math.floor(timeRemaining)
+    
+    console.log(hours);
+    console.log(minutes);
+    console.log(seconds);
+    
 }
 
 export default one
