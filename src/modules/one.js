@@ -3,17 +3,20 @@ const one = () => {
     const timerMinutes = document.getElementById('timer-minutes');
     const timerSeconds = document.getElementById('timer-seconds');
  
-    let deadline = '10 february 2022'
-    let dateStop = new Date(deadline).getTime()
-    let dateNow = new Date().getTime()
-    let timeRemaining = (dateStop - dateNow) / 1000
-    let hours = Math.floor(timeRemaining / 60 / 60)
-    let minutes = Math.floor((timeRemaining / 60) % 60)
-    let seconds = Math.floor(timeRemaining % 60)
+    const countTimer = (deadline) => {
+        let dateStop = new Date(deadline).getTime()
+        let dateNow = new Date().getTime()
+        let timeRemaining = (dateStop - dateNow) / 1000
+        let hours = Math.floor(timeRemaining / 60 / 60)
+        let minutes = Math.floor((timeRemaining / 60) % 60)
+        let seconds = Math.floor(timeRemaining % 60)
+        
+        timerHours.textContent = hours
+        timerMinutes.textContent = minutes
+        timerSeconds.textContent = seconds
+    }
     
-    timerHours.textContent = hours
-    timerMinutes.textContent = minutes
-    timerSeconds.textContent = seconds
+    countTimer('22 february 2022')
     
 }
 
