@@ -3,21 +3,29 @@ const one = () => {
     const timerMinutes = document.getElementById('timer-minutes');
     const timerSeconds = document.getElementById('timer-seconds');
  
-    const countTimer = (deadline) => {
+    const getTimeRemaining = (deadline) => {
         let dateStop = new Date(deadline).getTime()
         let dateNow = new Date().getTime()
         let timeRemaining = (dateStop - dateNow) / 1000
         let hours = Math.floor(timeRemaining / 60 / 60)
         let minutes = Math.floor((timeRemaining / 60) % 60)
         let seconds = Math.floor(timeRemaining % 60)
-        
-        timerHours.textContent = hours
-        timerMinutes.textContent = minutes
-        timerSeconds.textContent = seconds
+
+        return { hours, minutes, seconds }
     }
     
+    const updateClock = () => {
+        let getTime = getTimeRemaining('22 february 2022')
+    
+        timerHours.textContent = getTime.hours
+        timerMinutes.textContent = getTime.minutes
+        timerSeconds.textContent = getTime.seconds
+
+        setTimeout(updateClock, 1000)
+    }
+    updateClock()
     //countTimer('22 february 2022')
-    setInterval(countTimer, 1000, '22 february 2022')
+    //setInterval(countTimer, 1000, '22 february 2022')
     
 }
 
